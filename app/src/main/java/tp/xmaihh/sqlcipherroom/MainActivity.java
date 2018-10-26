@@ -3,8 +3,10 @@ package tp.xmaihh.sqlcipherroom;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
+import tp.xmaihh.sqlcipherroom.adapter.AutoCompleteTextAdapter;
 import tp.xmaihh.sqlcipherroom.model.User;
 import tp.xmaihh.sqlcipherroom.model.dao.UserDatabase;
 import tp.xmaihh.sqlcipherroom.util.UserTool;
@@ -12,6 +14,7 @@ import tp.xmaihh.sqlcipherroom.util.UserTool;
 public class MainActivity extends AppCompatActivity {
     private UserDatabase userDatabase;
     private User user;
+    private AutoCompleteTextView autoCompleteTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //*
         userDatabase = UserDatabase.getINSTANCE(this);
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView.setAdapter(new AutoCompleteTextAdapter(this));
+        autoCompleteTextView.setThreshold(1);
     }
 
     boolean working = false;
