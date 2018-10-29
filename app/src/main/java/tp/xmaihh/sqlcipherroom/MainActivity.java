@@ -1,5 +1,6 @@
 package tp.xmaihh.sqlcipherroom;
 
+import android.database.sqlite.SQLiteStatement;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
